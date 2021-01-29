@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">Test</a>
+    </div>
+  </div>
+</nav>
+  
+<div class="container">
+	<div class="row">
+		<div class="col-lg-4">
+			<div class="form-group">
+	 			<label for="wrk">Work:</label>
+				<input type="text" class="form-control" id="work">
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="form-group">
+				<label for="frnd">Friends:</label>
+				<input type="text" class="form-control" id="friends">
+			</div>	
+		</div>	
+	</div>
+	<div class="row">
+		<div class="col-lg-4">
+			<div class="form-group">
+	 			<label for="eat">Eat:</label>
+				<input type="text" class="form-control" id="eat">
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="form-group">
+				<label for="tv">Tv:</label>
+				<input type="text" class="form-control" id="tv">
+			</div>	
+		</div>	
+	</div>
+	<div class="row">
+		<div class="col-lg-4">
+			<div class="form-group">
+	 			<label for="gym">Gym:</label>
+				<input type="text" class="form-control" id="gym">
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="form-group">
+				<label for="sleep">Sleep:</label>
+				<input type="text" class="form-control" id="sleep">
+			</div>	
+		</div>	
+	</div>
+	<div class="row">
+		<button type="button" class="btn btn-success" onclick="openBar()">Submit</button>
+	</div>
+
+	<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Average Activity day</h4>
+        </div>
+        <div class="modal-body">
+          <div id="piechart"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+
+</div>
+</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+		function openBar(){
+			console.log("modal is open");
+			var work = $("#work").val();
+			var friends = $("#friends").val();
+			var eat = $("#eat").val();
+			var tv = $("#tv").val();
+			var gym = $("#gym").val();
+			var sleep = $("#sleep").val();
+
+			console.log(work+" "+friends+" "+eat+" "+tv+" "+gym+" "+sleep);
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+		function drawChart() {
+  		var data = google.visualization.arrayToDataTable([
+  		['Task', 'Hours per Day'],
+  		['Work', work],
+  		['Friends', friends],
+  		['Eat', eat],
+  		['TV', tv],
+  		['Gym', gym],
+  		['Sleep', sleep]
+	]);
+
+  // Optional; add a title and set the width and height of the chart
+	  var options = {'title':'My Average Day', 'width':550, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  	 var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  		chart.draw(data, options);
+	}
+	
+	$('#myModal').modal('show'); 
+	}
+	</script>
+</html>
