@@ -1,0 +1,131 @@
+Accept the item code, description, qty, and price of an item. Compute the total for the item.    
+
+Accept the user’s choice. If the choice is ‘y’ then accept the next set of inputs for a new item and compute the total. In this manner, compute the grand total for all the items purchased by the customer.    
+
+If the grand total is more than Rs. 10,000/‐ then, the customer is allowed a discount of 10%.    
+
+If the grand total is less than Rs. 1,000/‐ and the customer chooses to pay by card, then a surcharge of 2.5% is levied on the grand total.    
+
+Display the grand total for the customer in number form and in words.     
+
+ 
+
+ 
+
+ 
+
+ 
+
+Game - Number Puzzle  
+
+ 
+
+Write the code to solve the Number Puzzle game 
+
+Click on the below link to download the codebase from Github. 
+
+Fork the Number puzzle project from GitHub 
+
+or 
+
+Download Number puzzle project as Zip Folder 
+
+The numbers are randomly generated and you can shuffle the grid at any point in time. 
+
+ 
+
+Rules: Arrange the numbers in the grid from 1 to 15 as shown below. 
+
+ 
+
+Click on the numbered button adjacent to the empty cell to move the numbered button. The buttons that are diagonally positioned to the empty cell cannot be moved. Only the buttons to the left, right, top, and bottom can be moved. Essentially this means that you end up swapping the adjacent numbered button and the empty cell. Here both are buttons. The shuffle button allows you to shuffle the numbers in the grid. 
+
+The UI and all the required classes have already been written. You are required to write the logic for the following three methods in the class CustomNumberPuzzleControl. All these methods will be called by the UI component. If your code is correct, then the entire application works fine and you can play the number puzzle game. 
+
+Happy coding! 
+
+1. Method: getRandomNumbersForGrid() 
+
+public int[] getRandomNumbersForGrid() { 
+
+int arr[] = new int[15]; 
+
+// write the logic for the method 
+
+return arr; 
+
+} 
+
+Hint: 
+
+The base class has a method called getRandomNumber() which will return some random integer value. 
+
+Usage: 
+
+int randomInt = getRandomNumber(); // how to call this method… 
+
+Use this method to generate a random integer value. This can be any value and make sure you trim it down to some value between 1 to 15. 
+
+Fill the array ‘arr’ with random numbers from 1  to  15  without repeating any of the numbers. This will help in populating the grid with randomly generated numbers 
+
+2. Method: handleButtonClicked() 
+
+public int handleButtonClicked(NumberPuzzleGame game){ 
+
+int emptyCellId = game.getEmptyCellId(); 
+
+Button buttonClicked = game.getButtonClicked(); Button[] buttons = game.getButtons(); 
+
+// write the logic here… 
+
+return (emptyCellId); 
+
+} 
+
+Hint: 
+
+The base class provides a method void swapButton(Button emptyButton, Button clicked). Use this method to swap the button that is clicked and the button that is empty. 
+
+Usage: 
+
+swapButton(buttons[emptyCellId],buttonClicked); // How to call this method 
+
+Ensure that you set the emptyCellId with the new value and return the same. Do not bother about the code already written in the NumberPuzzleGame class and how it is used. Please focus on the logic. 
+
+3. Method: checkForWinner() 
+
+public boolean checkForWinner(Button[] buttons) { 
+
+boolean winner = true; 
+
+// write the logic for the method. 
+
+return winner; 
+
+} 
+
+Hint: 
+
+The base class provides a method called getIntegerArrayOfButtonIds(). This method takes the array of Buttons and returns an int[] array of buttonIds. 
+
+Usage: 
+
+int[] arr = getIntegerArrayOfButtonIds(); // How to call this method 
+
+If the numbers in this int[] array are already arranged from 1 to 15 then, we have won the game. 
+
+Accordingly, write the logic and return the value indicating whether you have won the game or not. 
+
+Steps to use Github: 
+
+Create an account in the GitHub website  
+
+Click on the above 'Fork the Number Puzzle project from GitHub' button, it will navigate you to Numberpuzzle repository and there you will be finding Number Puzzle codebase folder and 'GitHub and java codebase Setup in Eclipse.pdf 'document 
+
+Open the 'GitHub and java codebase Setup in Eclipse.pdf' to read about GitHub Usage and java codebase setup in eclipse. 
+
+Follow the instructions given in the pdf to start coding. 
+
+Once you are done with the coding, Kindly push your changes to the GitHub (follow the pdf for the guidance) 
+
+Take your GitHub repository URL from the chrome search bar and submit that in the below response box. 
